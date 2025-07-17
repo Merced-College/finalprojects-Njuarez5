@@ -1,0 +1,86 @@
+Quiz App Project Report
+
+Author: Nestor Juarez  
+Date: July 17, 2025
+
+1. Project Overview
+
+The Quiz App is a terminal-based Java program designed to quiz users on various programming-related questions. The app presents questions one at a time, tracks incorrect answers, and allows the user to review missed questions after completing the main quiz. This project demonstrates the use of multiple data structures, recursive algorithms, and object-oriented programming concepts.
+
+2. Description of Algorithms
+
+Algorithm 1: Queue-Based Question Presentation
+
+- Purpose: To present quiz questions in the order they were added.
+- Description: Uses a queue (FIFO) data structure to dequeue questions one-by-one for the user to answer.
+- Pseudocode:
+  while queue is not empty:
+      question = dequeue from queue
+      prompt user for answer
+      if answer is correct:
+          increment score
+      else:
+          push question onto missed questions stack
+- Big O Complexity:  
+  Each dequeue and enqueue operation runs in O(1) time, making question presentation efficient.
+
+Algorithm 2: Stack-Based Missed Question Review
+
+- Purpose: To allow users to retry questions they answered incorrectly.
+- Description: Uses a stack (LIFO) to manage missed questions so the most recently missed question is reviewed first.
+- Pseudocode:
+  while user wants to review and stack is not empty:
+      question = pop from stack
+      prompt user for answer
+      if answer is correct:
+          acknowledge success
+      else:
+          provide correct answer
+- Big O Complexity:  
+  Stack push and pop operations also run in O(1), making review efficient.
+
+Algorithm 3: Recursive Search in LinkedList
+
+- Purpose: To find if a question with a given prompt exists.
+- Description: Recursively searches through a linked list by checking each node’s question prompt.
+- Pseudocode:
+  function search(list, prompt, index):
+      if index >= list.size:
+          return false
+      if list[index].prompt equals prompt:
+          return true
+      else:
+          return search(list, prompt, index + 1)
+- Big O Complexity:  
+  This recursive search takes O(n) time in the worst case, where n is the number of questions.
+
+3. Data Structures Used and Justification
+
+- ArrayList: Stores all questions for easy access and management. Allows fast indexing and iteration.
+- Queue (LinkedList implementation): Used to present questions in FIFO order, matching a natural quiz flow.
+- Stack: Used to store missed questions to be reviewed later in LIFO order, prioritizing recent mistakes.
+- LinkedList: Demonstrates linked list usage and is the basis for the recursive search algorithm.
+
+These data structures are chosen to fulfill class requirements and suit the logical flow of the quiz application.
+
+4. Development Process
+
+Opportunity
+
+While designing the app, I realized tracking missed questions with a stack would allow a convenient way to review recent mistakes first. This enhanced user learning by focusing on the most recent problems.
+
+Challenge and Resolution
+
+Implementing recursive search was challenging since I initially used iteration. After learning recursion concepts, I refactored the search method to use recursion, which satisfies the project requirement and improves code clarity.
+
+5. Future Improvements
+
+- Add more question categories and dynamic loading from external files.
+- Implement a timer for each question to increase challenge.
+- Provide detailed statistics on user performance over time.
+- Develop a graphical user interface (GUI) for better usability.
+
+6. References
+
+- Code inspired and adapted with assistance from ChatGPT (OpenAI).
+- Java Documentation: https://docs.oracle.com/javase/8/docs/api/
